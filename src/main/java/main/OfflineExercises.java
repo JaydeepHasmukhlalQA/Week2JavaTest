@@ -89,7 +89,11 @@ public class OfflineExercises {
 	// endsDev("devisnotcool") → false
 
 	public boolean endsDev(String input) {
-		return false;
+		String matchDev = "dev";
+		int lenghtOfDevString = "dev".length();
+		
+		if (!input.toLowerCase().contains(matchDev)) return false;
+		return input.toLowerCase().substring(input.length() - lenghtOfDevString, input.length()).equals(matchDev);
 	}
 
 	// Given a string, return the length of the largest "block" in the string.
@@ -124,7 +128,6 @@ public class OfflineExercises {
 		}
 		
 		return noOfamAppearance;
-
 	}
 
 	// given a number
