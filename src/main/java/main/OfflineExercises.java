@@ -76,6 +76,12 @@ public class OfflineExercises {
 	public boolean evenlySpaced(int a, int b, int c) {
 		boolean evenlySpaced = false;
 		
+		if ((a - b == b - c) || (a - c == c - b) || (a - b == c - a)) {
+			evenlySpaced = true;
+		} else {
+			evenlySpaced = false; 
+		}
+		
 		return evenlySpaced;
 	}
 
@@ -89,8 +95,15 @@ public class OfflineExercises {
 	// nMid("Chocolate", 1) → "Choclate"
 
 	public String nMid(String input, int a) {
+		String midRemoved = "";
+		int inputLenght = input.length();
 		
-		return "";
+		String splitFrom = input.substring((inputLenght / 2) - 1, (inputLenght / 2) + (a - 1));
+		String[] stitchedUp = input.split(splitFrom);
+		
+		midRemoved = stitchedUp[0] + stitchedUp[1];
+		System.out.println(midRemoved);
+		return midRemoved;
 	}
 
 	// Given a string, return true if it ends in "dev". Ignore Case
@@ -117,7 +130,15 @@ public class OfflineExercises {
 	// superBlock("") → 0
 
 	public int superBlock(String input) {
-		return -1;
+		int blockCount = 0;
+		
+		for (int i = 0; i < input.length(); i++) {
+			if (input.substring(i, i + 1) == input.substring(i + 1, i + 2)) {
+				blockCount ++;
+			}
+		}
+		
+		return blockCount;
 
 	}
 
