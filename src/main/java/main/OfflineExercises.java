@@ -35,8 +35,21 @@ public class OfflineExercises {
 	// getBert("xxbeRTyy") → ""
 
 	public String getBert(String input) {
+		String reversedString = "";
+		int bertCount = input.toLowerCase().split("bert").length;
 		
-		return "";
+		if (bertCount != 2) return "";
+		
+		String[] splitInputFromBert = input.split("bert")[1].split("");
+		int count = splitInputFromBert.length - 1;
+		while (count >= 0)
+		{
+			reversedString += splitInputFromBert[count--];
+		}
+		
+		
+		System.out.println(reversedString);
+		return reversedString;
 	}
 
 	// Given three ints, a b c, one of them is small, one is medium and one is
@@ -115,8 +128,19 @@ public class OfflineExercises {
 	// fizzBuzz(15) → "fizzbuzz"
 
 	public String fizzBuzz(int arg1) {
-		return null;
-
+		int divideByThree = 3;
+		int divideByFive = 5;
+		int zeroRemainder = 0;
+		
+		String divisibleByThreeAndFive = "fizzbuzz";
+		String divisibleByThree = "fizz";
+		String divisibleByFive = "buzz";
+		
+		if ((arg1 % divideByThree == zeroRemainder) && (arg1 % divideByFive == zeroRemainder)) return divisibleByThreeAndFive;
+		if (arg1 % divideByThree == zeroRemainder) return divisibleByThree;
+		if (arg1 % divideByFive == zeroRemainder) return divisibleByFive;
+		
+		return "";
 	}
 
 	// Given a string split the string into the individual numbers present
