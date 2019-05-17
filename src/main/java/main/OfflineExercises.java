@@ -36,19 +36,19 @@ public class OfflineExercises {
 
 	public String getBert(String input) {
 		String reversedString = "";
-		int bertCount = input.toLowerCase().split("bert").length;
-		
-		if (bertCount != 2) return "";
-		
-		String[] splitInputFromBert = input.split("bert")[1].split("");
-		int count = splitInputFromBert.length - 1;
-		while (count >= 0)
-		{
-			reversedString += splitInputFromBert[count--];
-		}
-		
-		
-		System.out.println(reversedString);
+//		int bertCount = input.toLowerCase().split("bert").length;
+//		
+//		if (bertCount != 2) return "";
+//		
+//		String[] splitInputFromBert = input.split("bert")[1].split("");
+//		int count = splitInputFromBert.length - 1;
+//		while (count >= 0)
+//		{
+//			reversedString += splitInputFromBert[count--];
+//		}
+//		
+//		
+//		System.out.println(reversedString);
 		return reversedString;
 	}
 
@@ -132,13 +132,13 @@ public class OfflineExercises {
 		int divideByFive = 5;
 		int zeroRemainder = 0;
 		
-		String divisibleByThreeAndFive = "fizzbuzz";
-		String divisibleByThree = "fizz";
-		String divisibleByFive = "buzz";
+		String stringFizzBuzz = "fizzbuzz";
+		String stringFizz = "fizz";
+		String stringBuzz = "buzz";
 		
-		if ((arg1 % divideByThree == zeroRemainder) && (arg1 % divideByFive == zeroRemainder)) return divisibleByThreeAndFive;
-		if (arg1 % divideByThree == zeroRemainder) return divisibleByThree;
-		if (arg1 % divideByFive == zeroRemainder) return divisibleByFive;
+		if ((arg1 % divideByThree == zeroRemainder) && (arg1 % divideByFive == zeroRemainder)) return stringFizzBuzz;
+		if (arg1 % divideByThree == zeroRemainder) return stringFizz;
+		if (arg1 % divideByFive == zeroRemainder) return stringBuzz;
 		
 		return "";
 	}
@@ -158,7 +158,26 @@ public class OfflineExercises {
 	// largest("555 72 86 45 10") → 15
 
 	public int largest(String arg1) {
-		return 0;
+		int highestValue = 0;
+		
+		String[] individualNumbers = arg1.split(" ");
+		int[] totalFromIndivualNumbers = new int[individualNumbers.length];
+
+		for (int i = 0; i < individualNumbers.length; i++) {
+			int total = 0;
+			String[] digits = individualNumbers[i].split("");
+			
+			for (int j = 0; j < digits.length; j++) {
+				total += Integer.parseInt(digits[j]);
+			}
+			
+			totalFromIndivualNumbers[i] = total;
+		}
+
+		for (int total : totalFromIndivualNumbers) {
+			if (total > highestValue) highestValue = total;
+		}
+		return highestValue;
 
 	}
 
