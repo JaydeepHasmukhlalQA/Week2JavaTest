@@ -114,7 +114,16 @@ public class OfflineExercises {
 	// amISearch("I have been in Amsterdam") → 0
 
 	public int amISearch(String arg1) {
-		return 0;
+		int noOfamAppearance = 0;
+		String[] splitFromSentance = arg1.split(" ");
+		
+		for (int i = 0; i < splitFromSentance.length; i++) {
+			if (splitFromSentance[i].toLowerCase().equals("am")) {
+				noOfamAppearance++;
+			}
+		}
+		
+		return noOfamAppearance;
 
 	}
 
@@ -170,12 +179,12 @@ public class OfflineExercises {
 			for (int j = 0; j < digits.length; j++) {
 				total += Integer.parseInt(digits[j]);
 			}
-			
 			totalFromIndivualNumbers[i] = total;
 		}
 
 		for (int total : totalFromIndivualNumbers) {
-			if (total > highestValue) highestValue = total;
+			if (total > highestValue)
+				highestValue = total;
 		}
 		return highestValue;
 
