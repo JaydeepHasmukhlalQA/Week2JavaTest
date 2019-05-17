@@ -35,20 +35,30 @@ public class OfflineExercises {
 	// getBert("xxbeRTyy") → ""
 
 	public String getBert(String input) {
+		// I HATE BERT!
+		String matchBert = "bert";
+		String matchDoubleBerts = "bertbert";
+		int lenghtOfBert = matchBert.length();
 		String reversedString = "";
-//		int bertCount = input.toLowerCase().split("bert").length;
-//		
-//		if (bertCount != 2) return "";
-//		
-//		String[] splitInputFromBert = input.split("bert")[1].split("");
-//		int count = splitInputFromBert.length - 1;
-//		while (count >= 0)
-//		{
-//			reversedString += splitInputFromBert[count--];
-//		}
-//		
-//		
-//		System.out.println(reversedString);
+		
+		if (input.toLowerCase().contains(matchDoubleBerts)) return "";
+		
+		int bertCount = 0;
+		for (int i = 0; i < input.length(); i++) {
+			if ((i + lenghtOfBert) > input.length()) break;
+			if (input.toLowerCase().substring(i, i + lenghtOfBert).equals(matchBert)) {
+				bertCount++;
+				if (bertCount > 2) return "";
+			}
+		}
+		if (bertCount < 2) return "";
+		
+		String[] splitInputFromBert = input.toLowerCase().split("bert")[1].split("");
+		int count = splitInputFromBert.length - 1;
+		
+		for (int i = count; i > -1; i--) {
+			reversedString += splitInputFromBert[i];
+		}
 		return reversedString;
 	}
 
@@ -64,7 +74,9 @@ public class OfflineExercises {
 	// evenlySpaced(4, 60, 9) → false
 
 	public boolean evenlySpaced(int a, int b, int c) {
-		return false;
+		boolean evenlySpaced = false;
+		
+		return evenlySpaced;
 	}
 
 	// Given a string and an int n, return a string that removes n letters from the
@@ -77,6 +89,7 @@ public class OfflineExercises {
 	// nMid("Chocolate", 1) → "Choclate"
 
 	public String nMid(String input, int a) {
+		
 		return "";
 	}
 
